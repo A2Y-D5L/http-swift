@@ -1,0 +1,15 @@
+{
+  "name": "Swift Space",
+  "image": "swift:latest",  // Pull the latest Swift Docker image
+  "postCreateCommand": "swift --version", // Verifies Swift installation
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "sswg.swift-lang" // Swift language support extension
+      ]
+    }
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  }
+}
