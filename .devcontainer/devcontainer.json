@@ -6,17 +6,32 @@
   "runArgs": [
     "--init"
   ],
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "editor.formatOnSave": true,
-    "files.autoSave": "onFocusChange"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "sswg.swift-lang",
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "always"
+        },
+        "files.autoSave": "onFocusChange"
+      },
+      "extensions": [
+        "GitHub.copilot",
+        "sswg.swift-lang",
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cmake-tools-helper", 
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers"
+      ]
+    }
   },
-  "extensions": [
-    "sswg.swift-lang",
-    "ms-vscode.cpptools",  // Useful for C/C++ interop
-    "ms-vscode.cmake-tools"  // Useful if working with CMake
+  "postCreateCommand": [
+    "swift --version",
+    "swift-format --version"
   ],
-  "postCreateCommand": "swift --version",
   "remoteUser": "andy",
   "portsAttributes": {
     "8080": {
