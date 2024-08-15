@@ -1,15 +1,27 @@
 {
-  "name": "Swift Space",
-  "image": "swift:latest",  // Pull the latest Swift Docker image
-  "postCreateCommand": "swift --version", // Verifies Swift installation
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "sswg.swift-lang" // Swift language support extension
-      ]
-    }
+  "name": "Swift Development",
+  "build": {
+    "dockerfile": "Dockerfile"
   },
+  "runArgs": [
+    "--init"
+  ],
   "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash"
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "editor.formatOnSave": true,
+    "files.autoSave": "onFocusChange"
+  },
+  "extensions": [
+    "sswg.swift-lang",
+    "ms-vscode.cpptools",  // Useful for C/C++ interop
+    "ms-vscode.cmake-tools"  // Useful if working with CMake
+  ],
+  "postCreateCommand": "swift --version",
+  "remoteUser": "andy",
+  "portsAttributes": {
+    "8080": {
+      "label": "Web Server",
+      "onAutoForward": "openPreview"
+    }
   }
 }
