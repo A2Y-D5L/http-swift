@@ -1,5 +1,5 @@
 # http-swift
-A simple Swift HTTP server
+A simple Swift HTTP server modeled after Go's `net/http`.
 
 ## Usage
 
